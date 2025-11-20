@@ -3,10 +3,7 @@
     <name>IKun Progress</name>
     <vendor email="zengzijian3@gmail.com" url="https://github.com/TreeFireMen/intellij-pokemon-progress-ikun">TreeFireMen</vendor>
 
-    <description>
-        Kunkun is my idol, I am an IKUN.
-        Based on the original Pokémon, I added the animation effect of Kunkun playing basketball and modified the Pokémon ball to basketball
-    </description>
+    <description>IKun Progress plugin replaces the default progress bar with a basketball animation featuring KunKun, my idol</description>
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
