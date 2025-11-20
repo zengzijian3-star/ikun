@@ -1,10 +1,6 @@
 package com.kagof.intellij.plugins.pokeprogress.configuration;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.util.Collection;
@@ -17,14 +13,9 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JSlider;
+import javax.swing.*;
 
+import com.kagof.intellij.plugins.pokeprogress.*;
 import org.jetbrains.annotations.NotNull;
 
 import com.google.common.collect.ArrayListMultimap;
@@ -40,12 +31,6 @@ import com.intellij.uiDesigner.core.Spacer;
 import com.intellij.util.ui.FormBuilder;
 import com.intellij.util.ui.ThreeStateCheckBox;
 import com.intellij.util.ui.ThreeStateCheckBox.State;
-import com.kagof.intellij.plugins.pokeprogress.PokeballLoaderIconReplacer;
-import com.kagof.intellij.plugins.pokeprogress.PokemonPicker;
-import com.kagof.intellij.plugins.pokeprogress.PokemonProgressBarUi;
-import com.kagof.intellij.plugins.pokeprogress.PokemonProgressChangenotesDialog;
-import com.kagof.intellij.plugins.pokeprogress.PokemonResourceLoader;
-import com.kagof.intellij.plugins.pokeprogress.UpdateNotificationActivity;
 import com.kagof.intellij.plugins.pokeprogress.model.Generation;
 import com.kagof.intellij.plugins.pokeprogress.model.Pokemon;
 import com.kagof.intellij.plugins.pokeprogress.theme.ColorScheme;
@@ -55,7 +40,7 @@ import com.kagof.intellij.plugins.pokeprogress.theme.PaintThemes;
 
 public class PokemonProgressConfigurationComponent {
     private JPanel mainPanel;
-    final JLabel title = new JLabel("IKun Progress");
+    final JLabel title = new JLabel("IKun Progress Setting");
     final JProgressBar determinateProgressBar = new JProgressBar(0, 2);
     final JProgressBar indeterminateProgressBar = new JProgressBar();
     private PokemonProgressBarUi determinateUi;
@@ -82,6 +67,7 @@ public class PokemonProgressConfigurationComponent {
     private final JSlider maxHeight = new JSlider(8, 64, 20);
     private final JBCheckBox restrictMinHeight = new JBCheckBox("Restrict min height");
     private final JSlider minHeight = new JSlider(8, 64, 20);
+    private JButton imageButton;  // 用于打开图片弹窗的按钮
 
     public PokemonProgressConfigurationComponent() {
         createUi();
@@ -162,9 +148,9 @@ public class PokemonProgressConfigurationComponent {
     }
 
     private JPanel createTitlePanel() {
-        final JButton changenotes = new JButton("Changenotes");
+        final JButton changenotes = new JButton("打赏作者");
         changenotes.setUI(DefaultLinkButtonUI.createUI(changenotes));
-        changenotes.addActionListener(a -> new PokemonProgressChangenotesDialog(null).show());
+        changenotes.addActionListener(a -> new PokemonProgressImageDialog(null, "/com/kagof/intellij/plugins/pokeprogress/icons/wx.jpeg", "/com/kagof/intellij/plugins/pokeprogress/icons/zfb.jpeg").show());
         final JPanel titlePanel = new JPanel();
         titlePanel.setLayout(new GridBagLayout());
         final GridBagConstraints left = new GridBagConstraints();

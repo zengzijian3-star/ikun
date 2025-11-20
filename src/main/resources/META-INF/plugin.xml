@@ -13,11 +13,11 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable parentId="appearance"
+        <applicationConfigurable parentId="root"
                                  instance="com.kagof.intellij.plugins.pokeprogress.configuration.PokemonProgressConfigurable"
                                  id="org.intellij.sdk.settings.AppSettingsConfigurable"
                                  dynamic="true"
-                                 displayName="Ikun Progress" />
+                                 displayName="Ikun Progress Setting" />
         <applicationService
                 serviceImplementation="com.kagof.intellij.plugins.pokeprogress.configuration.PokemonProgressState" />
         <postStartupActivity implementation="com.kagof.intellij.plugins.pokeprogress.UpdateNotificationActivity" />
